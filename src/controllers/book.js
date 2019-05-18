@@ -18,7 +18,7 @@ const create = async (req, res) => {
             language
         });
 
-        newBook.code = `${name, newBook._id.toString().slice(18)}`;
+        newBook.code = `${newBook._id.toString().slice(18)}`;
 
         const book = await newBook.save();
         res.status(201).send({ book });
@@ -30,7 +30,6 @@ const create = async (req, res) => {
 
 const get = async (req, res) => {
     try {
-
       const book = await Book.findOne({ code: req.params.code });
       const paperback = await Page.count({ book: book._id });
       if (!book) return res.status(404, { msg: 'Book not found' });
@@ -42,7 +41,17 @@ const get = async (req, res) => {
     }
 }
 
+const list = async (req, res) => {
+    try {
+        const books = await Book.find({});
+        res.status(200).send({ books, all: books.length });
+    } catch (e) {
+        res.status(500).send({ error: e.message });
+    }
+}
+
 module.exports = {
     create,
-    get
+    get,
+    list
 }

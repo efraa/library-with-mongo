@@ -18,7 +18,7 @@ const BookSchema = Schema({
   publicDate: Date,
   language: String,
   code: String,
-  createdAt: {
+  registered: {
     type: Date,
     default: Date.now
   }

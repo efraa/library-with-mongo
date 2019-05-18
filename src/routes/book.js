@@ -22,4 +22,8 @@ api.post('/book', [
 // @Access   Public
 api.get('/book/:code', BookController.get);
 
+// @Desc     Get all books
+// @Access   Public
+api.get('/books', BookController.list);
+
 module.exports = api;
