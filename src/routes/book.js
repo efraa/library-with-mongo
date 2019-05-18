@@ -18,4 +18,8 @@ api.post('/book', [
     }),
 ], BookController.create);
 
+// @Desc     Get Book by CODE
+// @Access   Public
+api.get('/book/:code', BookController.get);
+
 module.exports = api;

@@ -2,6 +2,7 @@
 
 const { validationResult } = require('express-validator/check');
 const Book = require('../models/book');
+const Page = require('../models/page');
 
 const create = async (req, res) => { 
     const errors = validationResult(req);
@@ -27,6 +28,21 @@ const create = async (req, res) => {
     }
 }
 
+const get = async (req, res) => {
+    try {
+
+      const book = await Book.findOne({ code: req.params.code });
+      const paperback = await Page.count({ book: book._id });
+      if (!book) return res.status(404, { msg: 'Book not found' });
+
+      res.status(200).send({ book, paperback });
+
+    } catch (e) {
+        res.status(500).send({ error: e.message });
+    }
+}
+
 module.exports = {
-    create
+    create,
+    get
 }
