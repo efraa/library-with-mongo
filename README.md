@@ -123,6 +123,57 @@ Leer "Visualizar un libro" para entender el uso del parametro :code
 
 Lea los campos de "Crear un libro" para ver las opciones que puede actualizar
 
+_______________________________________________________________________________________________________
+
+## Pages
+
+### Crear una pagina de libro
+
+```~~ Ruta: /books/:book/pages```
+```~~ Metodo: POST```
+
+### NOTA:
+Segun los requerimientos se debe listar las paginas en HTML o TEXTO, supuse que seria para dar uso del API
+con un un editor de texto WYSIWYG, esto quiere decir que la entrada de contenido por defecto sera HTML desde un editor.
+
+Redundacia: Para crear una pagina su contenido debe ser creado con HTML simulando un editor de texto tipo "TinyMCE"
+
+#### Flujo
+Enviar datos al API
+agrega el :book parametro **(este es el campo CODE de un libro)**
+Tu URL debe verse similar a esta: ``` /books/a35c2/pages ```
+{ content: "your HTML" }
+
+Boom! Deberias tener una pagina creada y un libro actualizado.
+**OJO:** Cuando crea una pagina se actualiza el **paperback** del libro.
+
+``` 
+{
+    "page": {
+        "content": "<div><h3>Build beautiful content for the web with Tiny</h3>
+        <p>The rich text editing platform that helped launch Atlassian, 
+        Medium, Evernote, and more.</p></div>",
+        "prevPage": 0,
+        "nextPage": 2,
+        "page": 1,
+        "registered": "2019-05-19T05:59:42.891Z"
+    }
+}
+```
+
+##### Require => *
+
+1. content: *
+
+Las paginas tienen otros campos pero estos se llenan segun otro tipo de
+informacion en la DB, por ejemplo:
+
+1. nextPage
+2. prevPage
+3. page
+
+Se agrega el numero de pagina y la pagina anterior como la siguiente.
+
 
 ## Dependencias
 
