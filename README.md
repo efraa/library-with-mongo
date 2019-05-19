@@ -78,6 +78,28 @@ informacion puede evaluarse y ponerse Opcional.
 
 El nombre es necesario Obviamente seria redundate explicarlo.
 
+``` 
+{
+    "book": {
+        "name": "Más Allá de la Salud: Libro de Recetas Paleo y Keto",
+        "isbn": "978-1978282179",
+        "paperback": 240,
+        "publisher": "CreateSpace Independent Publishing Platform",
+        "publicDate": "2017-11-22T04:00:00.000Z",
+        "language": "Español",
+        "registered": "2019-05-19T17:22:02.121Z",
+        "code": "3435a9",
+        "desc": "¿Otro libro más de nutrición? ¿Pero cuántos más se necesitan? 
+        Vivimos en un mundo con demasiada información, pero la falta de acción de
+        las personas en su salud es lo que ha creado la epidemia de enfermedades 
+        que existen hoy en día. De hecho, la obesidad, diabetes, enfermedades 
+        neurológicas, las enfermedades relacionadas a las hormonas y la inflamación
+        están ahora mismo en sus niveles más altos en la historia del mundo.",
+    }
+}
+
+```
+
 ### Ver listado de libros
 
 ```~~ Ruta: /books```
