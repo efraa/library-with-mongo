@@ -25,6 +25,16 @@ El modelo de un libro esta basado en los detalles que normalmente tiene un libro
 de amazon y otros detalles ya que en los requerimientos no se especifica
 la informacion que deben tener.
 
+## Listado de acciones
+
+- [Crear un libro](#crear-un-libro)
+- [Ver listado de libros](#ver-listado-de-libros)
+- [Visualizar un libro](#visualizar-un-libro)
+- [Eliminar un libro](#eliminar-un-libro)
+- [Actualizar un libro](#actualizar-un-libro)
+- [Visualizar un libro](#visualizar-un-libro)
+- [Visualizar un libro](#visualizar-un-libro)
+
 ### Rutas
 
 Todas las rutas que veras mas adelante deben estar corriendo en 

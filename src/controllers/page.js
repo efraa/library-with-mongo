@@ -91,7 +91,7 @@ const update = async (req, res) => {
             runValidators: true
         });
 
-        if (!pageUpdate) res.status(404).send({ msg: 'The book has not been updated' });
+        if (!pageUpdate) res.status(404).send({ msg: 'The page has not been updated' });
         res.status(200).send({ page: pageUpdate });
     } catch (e) {
         res.status(500).send({ error: e.message });
