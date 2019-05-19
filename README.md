@@ -126,17 +126,6 @@ Ejemplo:
 
 Metodo: GET
 
-#### De donde sale el valor de CODE? 
-Cuando creas un libro se toma el _id que asigna MONGODB y se utiliza solo 7 digitos
-de este ID 
-
-### porque crear otro tipo de ID?
-Es simple, MONGODB crea un ID con mas de 20 caracteres por lo cual no es muy amigable.
-se entiende que con un copia de 7 digitos de este mismo se puede trabajar mas amigablemente
-y tener rutas mas cortas y legibles.
-
-el CODE de 7 digitos se crea con letras Mayus, Minus y numeros.
-
 ### Eliminar un libro
 
 ```~~ /books/:code```
