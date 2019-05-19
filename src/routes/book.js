@@ -7,7 +7,7 @@ const api = express.Router();
 
 // @Desc    Create book
 // @Access  Private.
-api.post('/book', [
+api.post('/', [
     check('name', 'please enter a name with 3 or more characters')
     .isLength({
         min: 3
@@ -18,12 +18,16 @@ api.post('/book', [
     }),
 ], BookController.create);
 
-// @Desc     Get Book by CODE
-// @Access   Public
-api.get('/book/:code', BookController.get);
+// @Desc     DELETE book by CODE
+// @Access   Private
+api.delete('/:code', BookController.remove);
 
 // @Desc     Get all books
 // @Access   Public
-api.get('/books', BookController.list);
+api.get('/', BookController.list);
+
+// @Desc     Get Book by CODE
+// @Access   Public
+api.get('/:code', BookController.get);
 
 module.exports = api;

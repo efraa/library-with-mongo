@@ -32,7 +32,7 @@ const get = async (req, res) => {
     try {
       const book = await Book.findOne({ code: req.params.code });
       const paperback = await Page.count({ book: book._id });
-      if (!book) return res.status(404, { msg: 'Book not found' });
+      if (!book) return res.status(404).send({ msg: 'Book not found' });
 
       res.status(200).send({ book, paperback });
 
@@ -44,7 +44,19 @@ const get = async (req, res) => {
 const list = async (req, res) => {
     try {
         const books = await Book.find({});
-        res.status(200).send({ books, all: books.length });
+        res.status(200).json({ books, all: books.length });
+    } catch (e) {
+        res.status(500).send({ error: e.message });
+    }
+}
+
+const remove = async (req, res) => {
+    try {
+        const book = await Book.findOne({ code: req.params.code });
+        if (!book) return res.status(404).send({ msg: 'Book not found' });
+        await book.remove();
+        return res.status(200).send({ msg: 'the book has been removed' });
+
     } catch (e) {
         res.status(500).send({ error: e.message });
     }
@@ -53,5 +65,6 @@ const list = async (req, res) => {
 module.exports = {
     create,
     get,
-    list
+    list,
+    remove
 }
