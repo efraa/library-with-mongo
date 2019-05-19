@@ -11,11 +11,15 @@ api.post('/', [
     check('name', 'please enter a name with 3 or more characters')
     .isLength({
         min: 3
-    }),
+    })
+    .trim()
+    .escape(),
     check('isbn', 'please enter a valid ISBN this must have 12 or more characters')
     .isLength({
         min: 12
-    }),
+    })
+    .trim()
+    .escape()
 ], BookController.create);
 
 // @Desc     Get all books
