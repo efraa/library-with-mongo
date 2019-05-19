@@ -18,16 +18,20 @@ api.post('/', [
     }),
 ], BookController.create);
 
-// @Desc     DELETE book by CODE
-// @Access   Private
-api.delete('/:code', BookController.remove);
-
 // @Desc     Get all books
 // @Access   Public
 api.get('/', BookController.list);
 
+// @Desc     DELETE book by CODE
+// @Access   Private
+api.delete('/:code', BookController.remove);
+
 // @Desc     Get Book by CODE
 // @Access   Public
 api.get('/:code', BookController.get);
+
+// @Desc     Update book by CODE
+// @Access   Private
+api.put('/:code', BookController.update);
 
 module.exports = api;

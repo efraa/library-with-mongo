@@ -16,6 +16,10 @@ const BookSchema = Schema({
   desc: String,
   publisher: String,
   publicDate: Date,
+  paperback: {
+    type: Number,
+    default: 0
+  },
   language: String,
   code: String,
   registered: {
