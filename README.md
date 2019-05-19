@@ -56,6 +56,7 @@ familiar y poco variante.
 ### Crear un libro
 
 ```~~ Ruta: /books```
+
 ```~~ Metodo: POST```
 
 Para crear un libro algunos campos son obligatorios.
@@ -103,6 +104,7 @@ El nombre es necesario Obviamente seria redundate explicarlo.
 ### Ver listado de libros
 
 ```~~ Ruta: /books```
+
 ```~~ Metodo: GET```
 
 Luego de crear varios libros podra ver el listado
@@ -110,6 +112,7 @@ Luego de crear varios libros podra ver el listado
 ### Visualizar un libro
 
 ```~~ Ruta: /books/:code```
+
 ```~~ Metodo: GET```
 
 Si vez el listado de libros cada libro devuelve un campo ```~~CODE~~```
@@ -118,7 +121,9 @@ el cual se utiliza como id.
 Pasalo como parametro a la url. como en el ejemplo
 
 Ejemplo:
+
 ```localhost:2302/api/v1/books/a35c2```
+
 Metodo: GET
 
 #### De donde sale el valor de CODE? 
@@ -135,6 +140,7 @@ el CODE de 7 digitos se crea con letras Mayus, Minus y numeros.
 ### Eliminar un libro
 
 ```~~ /books/:code```
+
 ```~~ Metodo: DELETE```
 
 Leer "Visualizar un libro" para entender el uso del parametro :code
@@ -142,6 +148,7 @@ Leer "Visualizar un libro" para entender el uso del parametro :code
 ### Actualizar un libro
 
 ```~~ Ruta: /books/:code```
+
 ```~~ Metodo: PUT```
 
 Leer "Visualizar un libro" para entender el uso del parametro :code
@@ -155,6 +162,7 @@ ________________________________________________________________________________
 ### Crear una pagina de libro
 
 ```~~ Ruta: /books/:book/pages```
+
 ```~~ Metodo: POST```
 
 ### NOTA:
@@ -202,6 +210,7 @@ Se agrega el numero de pagina y la pagina anterior como la siguiente.
 ### Ver todas las pagina de un libro
 
 ```~~ Ruta: /books/:book/pages```
+
 ```~~ Metodo: GET```
 
 ### NOTA:
@@ -236,6 +245,7 @@ el formato es HTML por defecto si quieres ver el contenido en **TEXTO PLANO**
 ### Ver una pagina de un libro
 
 ```~~ Ruta: /books/:book/pages/:page```
+
 ```~~ Metodo: GET```
 
 ### NOTA:
@@ -264,12 +274,15 @@ el formato es HTML por defecto si quieres ver el contenido en **TEXTO PLANO**
 ### Eliminar una pagina
 
 ```~~ Ruta: /books/:book/pages/:page```
+
 ```~~ Metodo: DELETE```
 
 ### Actualizar el contenido de una pagina
 
 ```~~ Ruta: /books/:book/pages/:page```
+
 ```~~ Metodo: PUT```
+
 { content: "YOUR HTML" }
 
 ## Dependencias
@@ -278,3 +291,6 @@ Esta API utiliza Express Validation para evitar crear libros sin sus debidos cam
 y limpiar los datos.
 
 Se utiliza un ORM Mongoose para interactuar con MONGODB
+
+sanitize-html: Validar HTML 
+HTML-to-text: Transformar HTML en TEXTO
