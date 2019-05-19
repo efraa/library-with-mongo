@@ -11,14 +11,14 @@ utilizar este API
 Se requiere tener MongoDB en su maquina y corriendo.
 
 1. Clonar este proyecto (Obvio)
-2. ```cd library/src``
+2. ```cd library/src```
 3. ```npm i && npm run watch```
 4. Su API deberia estar corriendo en ```localhost:2302/api/v1```
 6. Si desea cambiar el puerto verifique la carpeta ```config/index```
 
 #### NOTA:
 
-Debes crear libros para poder interactuar con las rutas
+Debes crear libros para poder interactuar con las rutas,
 el flujo correcto seria crear algunos libros primero.
 
 El modelo de un libro esta basado en los detalles que normalmente tiene un libro 
@@ -27,22 +27,22 @@ la informacion que deben tener.
 
 ### Crear un libro
 
-~~ Ruta: localhost:2302/api/v1/books 
-~~ Metodo: POST
+```~~ Ruta: localhost:2302/api/v1/books```
+```~~ Metodo: POST```
 
 Para crear un libro algunos campos son obligatorios.
 
 ##### Require => *
 ##### Optional => !
 
-name: *
-isbn: *
-desc: !
-publisher: !
-publicDate: !
-language: !
+1. name: *
+2. isbn: *
+3. desc: !
+4. publisher: !
+5. publicDate: !
+6. language: !
 
-Porque REQUIRE*
+Porque REQUIRE*?
 
 Segun investigue los libros tienen un numero unico llamado ISBN
 por lo cual seria recomendable que si registras un libro agregues ese tipo de
@@ -52,17 +52,17 @@ El nombre es necesario Obviamente seria redundate explicarlo.
 
 ### Ver listado de libros
 
-~~ Ruta: localhost:2302/api/v1/books
-~~ Metodo: GET
+```~~ Ruta: localhost:2302/api/v1/books```
+```~~ Metodo: GET```
 
 Luego de crear varios libros podra ver el listado
 
 ### Visualizar un libro
 
-~~ Ruta: localhost:2302/api/v1/books/:code
-~~ Metodo: GET
+```~~ Ruta: localhost:2302/api/v1/books/:code```
+```~~ Metodo: GET```
 
-Si vez el listado de libros cada libro devuelve un campo ~~CODE~~
+Si vez el listado de libros cada libro devuelve un campo ```~~CODE~~```
 el cual se utiliza como id.
 
 Pasalo como parametro a la url. como en el ejemplo
@@ -84,15 +84,15 @@ el CODE de 7 digitos se crea con letras Mayus, Minus y numeros.
 
 ### Eliminar un libro
 
-~~ Ruta: localhost:2302/api/v1/books/:code
-~~ Metodo: DELETE
+```~~ Ruta: localhost:2302/api/v1/books/:code```
+```~~ Metodo: DELETE```
 
 Leer "Visualizar un libro" para entender el uso del parametro :code
 
 ### Actualizar un libro
 
-~~ Ruta: localhost:2302/api/v1/books/:code
-~~ Metodo: PUT
+```~~ Ruta: localhost:2302/api/v1/books/:code```
+```~~ Metodo: PUT```
 
 Leer "Visualizar un libro" para entender el uso del parametro :code
 
