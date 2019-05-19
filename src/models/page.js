@@ -7,6 +7,7 @@ const PageSchema = Schema({
   book: String,
   nextPage: Number,
   prevPage: Number,
+  page: Number,
   content: {
     type: String,
     required: true
