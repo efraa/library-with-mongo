@@ -2,7 +2,6 @@
 
 const { validationResult } = require('express-validator/check');
 const Book = require('../models/book');
-const Page = require('../models/page');
 
 const create = async (req, res) => { 
     const errors = validationResult(req);
@@ -41,7 +40,7 @@ const get = async (req, res) => {
 
 const list = async (req, res) => {
     try {
-        const books = await Book.find({});
+        const books = await Book.find({}).sort({ _id: -1 });
         res.status(200).json({ books, all: books.length });
     } catch (e) {
         res.status(500).send({ error: e.message });
