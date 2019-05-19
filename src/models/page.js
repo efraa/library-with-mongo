@@ -4,25 +4,26 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const PageSchema = Schema({
-  book: {
-    type: Schema.Types.ObjectId,
-    ref: 'Book'
-  },
+  book: String,
+  nextPage: Number,
+  prevPage: Number,
   content: {
     type: String,
     required: true
   },
-  createdAt: {
+  registered: {
     type: Date,
     default: Date.now
   }
 },
 {
-    toJSON: {
-        transform: (doc, page) => {
-        delete page.__v;
-        }
+  toJSON: {
+    transform: (doc, page) => {
+      delete page.__v;
+      delete page._id;
+      delete page.book;
     }
+  }
 });
 
 module.exports = mongoose.model('Page', PageSchema);
