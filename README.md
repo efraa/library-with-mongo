@@ -32,8 +32,11 @@ la informacion que deben tener.
 - [Visualizar un libro](#visualizar-un-libro)
 - [Eliminar un libro](#eliminar-un-libro)
 - [Actualizar un libro](#actualizar-un-libro)
-- [Visualizar un libro](#visualizar-un-libro)
-- [Visualizar un libro](#visualizar-un-libro)
+- [Crear una pagina de libro](#crear-una-pagina-de-libro)
+- [Ver todas las pagina de un libro](#ver-todas-las-pagina-de-un-libro)
+- [Ver una pagina de un libro](#ver-una-pagina-de-un-libro)
+- [Eliminar una pagina](#eliminar-una-pagina)
+- [Actualizar una pagina](#actualizar-el-contenido-de-una-pagina)
 
 ### Rutas
 
@@ -139,10 +142,10 @@ con un un editor de texto WYSIWYG, esto quiere decir que la entrada de contenido
 Redundacia: Para crear una pagina su contenido debe ser creado con HTML simulando un editor de texto tipo "TinyMCE"
 
 #### Flujo
-Enviar datos al API
-agrega el :book parametro **(este es el campo CODE de un libro)**
-Tu URL debe verse similar a esta: ``` /books/a35c2/pages ```
-{ content: "your HTML" }
+1. Enviar datos al API
+2. Agrega el :book parametro **(este es el campo CODE de un libro)**
+3. Tu URL debe verse similar a esta: ``` /books/a35c2/pages ```
+4. { content: "your HTML" }
 
 Boom! Deberias tener una pagina creada y un libro actualizado.
 **OJO:** Cuando crea una pagina se actualiza el **paperback** del libro.
@@ -174,6 +177,78 @@ informacion en la DB, por ejemplo:
 
 Se agrega el numero de pagina y la pagina anterior como la siguiente.
 
+### Ver todas las pagina de un libro
+
+```~~ Ruta: /books/:book/pages```
+```~~ Metodo: GET```
+
+### NOTA:
+Segun los requerimientos se debe listar las paginas en HTML o TEXTO, por defecto el contenido es añadido en HTML
+por lo que el valor por defecto del formato sera HTML.
+
+#### Flujo
+1. Tu URL debe verse similar a esta: ``` /books/a35c2/pages ```
+
+2. Boom! Deberias tener un listado de paginas.
+
+### NOTA FORMATEAR LOS DATOS:
+
+el formato es HTML por defecto si quieres ver el contenido en **TEXTO PLANO**
+1. solo agrega un **QUERY** a la URL:
+2. Tu URL debe verse similar a esta: ``` /books/a35c2/pages?format=text ```
+
+``` 
+{
+    "content": "Build beautiful content for the web with TinyThe
+    rich text editing platform that\nhelped launch Atlassian,
+    Medium, Evernote, and more.",
+    "prevPage": 14,
+    "nextPage": 16,
+    "page": 15,
+    "registered": "2019-05-19T06:20:01.793Z"
+ }, 
+ x200 pages..
+     
+```
+
+### Ver una pagina de un libro
+
+```~~ Ruta: /books/:book/pages/:page```
+```~~ Metodo: GET```
+
+### NOTA:
+Puedes ver las paginas en HTML o TEXTO, por defecto el contenido es añadido en HTML
+por lo que el valor por defecto del formato sera HTML.
+
+#### Flujo
+1. Tu URL debe verse similar a estas: 
+2. ``` /books/a35c2/pages/1 ```
+3. ``` /books/a35c2/pages/3 ```
+4. ``` /books/a35c2/pages/5 ```
+5. ``` /books/a35c2/pages/2 ```
+
+6. Boom! Deberias tener un pagina.
+
+### NOTA FORMATEAR LOS DATOS:
+
+el formato es HTML por defecto si quieres ver el contenido en **TEXTO PLANO**
+1. solo agrega un **QUERY** a la URL:
+2. Tu URL debe verse similar a estas:
+3. ``` /books/a35c2/pages/1?format=text ```
+4. ``` /books/a35c2/pages/3?format=html ```
+5. ``` /books/a35c2/pages/5?format=text ```
+6. ``` /books/a35c2/pages/2?format=html ```
+
+### Eliminar una pagina
+
+```~~ Ruta: /books/:book/pages/:page```
+```~~ Metodo: DELETE```
+
+### Actualizar el contenido de una pagina
+
+```~~ Ruta: /books/:book/pages/:page```
+```~~ Metodo: PUT```
+{ content: "YOUR HTML" }
 
 ## Dependencias
 
