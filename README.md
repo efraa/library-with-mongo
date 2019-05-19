@@ -25,9 +25,24 @@ El modelo de un libro esta basado en los detalles que normalmente tiene un libro
 de amazon y otros detalles ya que en los requerimientos no se especifica
 la informacion que deben tener.
 
+### Rutas
+
+Todas las rutas que veras mas adelante deben estar corriendo en 
+``` localhost:2302/api/v1/your-route ```
+
+##### /api/v1 ?
+Esto es solo un prefijo en las rutas para futuras actualizaciones en el API
+cambiar la v1 por la siguiente v2, vX "Puede editar los archivos y cambiar esto
+en ``` config/index```"
+
+#### Casi todas las rutas son las mismas WTF???
+Si, la variante aqui sera el METODO en que Consultes el API y algunos parametros.
+Como interactuas con un API que solo trata de libros es amigable utilizar un endpoint
+familiar y poco variante.
+
 ### Crear un libro
 
-```~~ Ruta: localhost:2302/api/v1/books```
+```~~ Ruta: /books```
 ```~~ Metodo: POST```
 
 Para crear un libro algunos campos son obligatorios.
@@ -52,14 +67,14 @@ El nombre es necesario Obviamente seria redundate explicarlo.
 
 ### Ver listado de libros
 
-```~~ Ruta: localhost:2302/api/v1/books```
+```~~ Ruta: /books```
 ```~~ Metodo: GET```
 
 Luego de crear varios libros podra ver el listado
 
 ### Visualizar un libro
 
-```~~ Ruta: localhost:2302/api/v1/books/:code```
+```~~ Ruta: /books/:code```
 ```~~ Metodo: GET```
 
 Si vez el listado de libros cada libro devuelve un campo ```~~CODE~~```
@@ -68,7 +83,7 @@ el cual se utiliza como id.
 Pasalo como parametro a la url. como en el ejemplo
 
 Ejemplo:
-```localhost:2302/api/v1/books/a35c2d```
+```localhost:2302/api/v1/books/a35c2```
 Metodo: GET
 
 #### De donde sale el valor de CODE? 
@@ -84,14 +99,14 @@ el CODE de 7 digitos se crea con letras Mayus, Minus y numeros.
 
 ### Eliminar un libro
 
-```~~ Ruta: localhost:2302/api/v1/books/:code```
+```~~ /books/:code```
 ```~~ Metodo: DELETE```
 
 Leer "Visualizar un libro" para entender el uso del parametro :code
 
 ### Actualizar un libro
 
-```~~ Ruta: localhost:2302/api/v1/books/:code```
+```~~ Ruta: /books/:code```
 ```~~ Metodo: PUT```
 
 Leer "Visualizar un libro" para entender el uso del parametro :code
