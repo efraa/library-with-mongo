@@ -292,5 +292,6 @@ y limpiar los datos.
 
 Se utiliza un ORM Mongoose para interactuar con MONGODB
 
-sanitize-html: Validar HTML 
-HTML-to-text: Transformar HTML en TEXTO
+```sanitize-html:```  Validar HTML 
+
+```HTML-to-text:```  Transformar HTML en TEXTO
